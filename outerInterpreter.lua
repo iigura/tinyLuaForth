@@ -26,7 +26,7 @@ outerInterpreter=function(inLine)
 	Line=inLine; scanPos=1; local token=GetToken()
 	while token do local tokVal = Dict[token] and token or tonumber(token)
 		if tokVal then action[Mode][type(tokVal)](tokVal); token=GetToken() 
-		else return false end
+		else return token end
 	end
-	return true
+	return nil
 end
