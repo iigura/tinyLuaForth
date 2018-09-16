@@ -10,8 +10,8 @@ Dict.Add { name=":", immediate=true, code=function()
 	NewWord={code=docol, name=GetToken(), param={}}
 	Dict[NewWord.name]=NewWord; Mode="compile" end }
 Dict.Add { name="semis", code=function() IP=RS.Pop() end }
-Dict.Add { name=";", immediate=true, code=function() compile("semis")
-	Dict[NewWord.name]=NewWord; Mode="interpret" end }
+Dict.Add { name=";", immediate=true, code=function()
+	compile("semis"); Dict[NewWord.name]=NewWord; Mode="interpret" end }
 Dict.Add { name="0branch", code=function()
 	if DS.Pop()==0 then IP.index=IP.index+readIP() else incIP() end end }
 Dict.Add { name="if", immediate=true, code=function()
